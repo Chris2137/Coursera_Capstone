@@ -11,6 +11,10 @@ favorite cuisine around.
 To make it more informative, I would also create clustering for both Toronto and New York. With that we could have an overview of
 similarities between these two CBD.
 
+Target to help picking location for
+1) Whoever wanted to start a restaurant
+2) Gourmet lover who are looking for house
+3) Businessman who are looking for office
 
 #Data
 I will reuse data that we retrieved from labs for both New York and Toronto :
@@ -27,3 +31,34 @@ https://api.foursquare.com/v2/venues/search
 Neighborhood with too little number of restaurants will not be included in clustering as the distribution may not be too informative,
 e.g. one restaurant category could contribute to 25% if a neighborhood has only 4 restaurants.
 The threshold for a neighborhood to be considered is set to 10 restaurants.
+
+Example response from search api :
+[{'id': '4b8daea1f964a520480833e3',
+  'name': 'Grover Pub and Grub',
+  'location': {'address': '676 Kingston Rd.',
+   'crossStreet': 'at Main St.',
+   'lat': 43.679181434941015,
+   'lng': -79.29721535878515,
+   'labeledLatLngs': [{'label': 'display',
+     'lat': 43.679181434941015,
+     'lng': -79.29721535878515}],
+   'distance': 460,
+   'postalCode': 'M4E 1R4',
+   'cc': 'CA',
+   'city': 'Toronto',
+   'state': 'ON',
+   'country': 'Canada',
+   'formattedAddress': ['676 Kingston Rd. (at Main St.)',
+    'Toronto ON M4E 1R4',
+    'Canada']},
+  'categories': [{'id': '4bf58dd8d48988d11b941735',
+    'name': 'Pub',
+    'pluralName': 'Pubs',
+    'shortName': 'Pub',
+    'icon': {'prefix': 'https://ss3.4sqi.net/img/categories_v2/nightlife/pub_',
+     'suffix': '.png'},
+    'primary': True}],
+  'referralId': 'v-1583020118',
+  'hasPerk': False}, ...]
+  I will mainly amke use of each venue's categories. Note that one venue could belong to multiple category,
+  data needs to be further processed to include only category that I am interested in.
