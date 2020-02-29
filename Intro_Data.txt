@@ -1,0 +1,29 @@
+#Introduction/Business Problem
+
+As a food lover, finding a good restaurant for my meals of a day is of fundamental importance.
+It would be helpful for either picking places to start a business, rent a house or run a restaurant if I could know the
+categories of restaurants in a neighborhood.
+Upon clustering neighborhoods by varieties of cuisine, it would be easy to pick a location with most cuisine that
+I am in favor of. Or if I am planning to start a restaurant of chinese cuisine, I could easily pick a location
+that has less competition, so I could easily stand out. It would also be nice to work in a neighborhoods with lots of my
+favorite cuisine around.
+
+To make it more informative, I would also create clustering for both Toronto and New York. With that we could have an overview of
+similarities between these two CBD.
+
+
+#Data
+I will reuse data that we retrieved from labs for both New York and Toronto :
+New York Neighborhood and coordinates
+https://geo.nyu.edu/catalog/nyu_2451_34572
+Toronto Postal codes :
+https://en.wikipedia.org/wiki/List_of_postal_codes_of_Canada:_M
+And coordinates to be read from :
+http://cocl.us/Geospatial_data
+
+I will be mainly using the Four Square 'search' API to retrieve restaurants information (CATEGORY_ID = '4d4b7105d754a06374d81259')
+https://api.foursquare.com/v2/venues/search
+
+Neighborhood with too little number of restaurants will not be included in clustering as the distribution may not be too informative,
+e.g. one restaurant category could contribute to 25% if a neighborhood has only 4 restaurants.
+The threshold for a neighborhood to be considered is set to 10 restaurants.
